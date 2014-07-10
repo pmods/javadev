@@ -58,18 +58,18 @@ class javadev {
     # Install ant manually
     if $manualant  {
         $ant_url = "http://mirror.cogentco.com/pub/apache//ant/binaries"
-        $ant_version = "apache-ant-1.9.4-bin"
+        $ant_version = "apache-ant-1.9.4"
 
         exec { 'fetch-ant':
-            command => "curl -o $ant_version.tar.gz $ant_url/$ant_version.tar.gz",
+            command => "curl -o $ant_version-bin.tar.gz $ant_url/$ant_version-bin.tar.gz",
             user    => 'root',
             cwd     => '/root',
-            unless  => "ls /root/$ant_version.tar.gz",
+            unless  => "ls /root/$ant_version-bin.tar.gz",
             path    => $defpath
         }
 
         exec { 'extract-ant':
-            command => "tar xzf /root/$ant_version.tar.gz",
+            command => "tar xzf /root/$ant_version-bin.tar.gz",
             user    => 'root',
             cwd     => '/opt',
             unless  => "ls -d /opt/$ant_version",
