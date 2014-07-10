@@ -13,6 +13,18 @@ class javadev {
 
             $pkg_provider = pkgng
         }
+        centos: {
+            $packages = [
+                'java-1.6.0-openjdk',
+                'java-1.6.0-openjdk-devel',
+                'java-1.7.0-openjdk',
+                'java-1.7.0-openjdk-devel',
+                'ant',
+                'ant-apache-regexp',
+            ]
+
+            $pkg_provider = yum
+        }
         default: {
             
             $packages = [
